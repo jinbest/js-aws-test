@@ -1,0 +1,87 @@
+service: api
+frameworkVersion: "2 || 3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: "20201221"
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource:
+        - "arn:aws:dynamodb:*:*"
+  environment:
+    APP_SECRET: ${file(./config.yml):${self:custom.stage}.APP_SECRET}
+    DB_PREFIX: ${file(./config.yml):${self:custom.stage}.DB_PREFIX}
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  DB_PREFIX: ${file(./config.yml):${self:custom.stage}.DB_PREFIX}
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+      seed: true
+    seed:
+      domain:
+        sources:
+          - table: ${self:custom.DB_PREFIX}-users
+            sources: [./offline/migrations/user-seed.json]
+
+functions:
+  getAllUsers:
+    handler: handler.getAllUsers
+    events:
+      - http:
+          method: GET
+          path: users/getAll
+          cors: true
+
+  createUser:
+    handler: handler.createUser
+    events:
+      - http:
+          method: POST
+          path: users
+          cors: true
+
+  updateUser:
+    handler: handler.updateUser
+    events:
+      - http:
+          method: PUT
+          path: users/update
+          cors: true
+
+  updateUserStatus:
+    handler: handler.updateUserStatus
+    events:
+      - http:
+          method: PUT
+          path: users/status
+          cors: true
+
+  deleteUser:
+    handler: handler.deleteUser
+    events:
+      - http:
+          method: DELETE
+          path: users/delete/{id}
+          cors: true
+
+resources:
+  Resources: ${file(offline/migrations/user.yml)}
+
+package:
+  exclude:
+    - node_modules/dynamodb-localhost/**
+    - node_modules/serverless-dynamodb-local/**
+    - node_modules/serverless-offline/**
