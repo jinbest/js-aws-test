@@ -1,0 +1,21 @@
+.layout {
+  margin: 30px;
+}
+.user-wrapper {
+  margin: auto;
+  display: flex;
+  margin-top: 20px;
+}
+.user-list {
+  padding: 20px;
+}
+
+.user-firstName {
+  margin-right: 10px;
+}
+.user-lastName {
+  margin-right: 20px;
+}
+.user-email {
+  margin-right: 20px;
+}
