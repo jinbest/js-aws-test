@@ -61,14 +61,6 @@ functions:
           path: users/update
           cors: true
 
-  updateUserStatus:
-    handler: handler.updateUserStatus
-    events:
-      - http:
-          method: PUT
-          path: users/status
-          cors: true
-
   deleteUser:
     handler: handler.deleteUser
     events:
