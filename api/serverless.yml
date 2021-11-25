@@ -25,6 +25,8 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   DB_PREFIX: ${file(./config.yml):${self:custom.stage}.DB_PREFIX}
   dynamodb:
+    stages:
+      - dev
     start:
       port: 8000
       inMemory: true

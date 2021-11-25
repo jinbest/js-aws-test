@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "app": "serverless offline",
+    "api": "serverless offline",
     "db-setup": "sls dynamodb install",
+    "migrate": "sls dynamodb start --migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
