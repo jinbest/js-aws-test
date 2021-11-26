@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useRoutes } from "react-router-dom";
 import axios from "axios";
-const BASE_URL = "http://localhost:3000";
-
+import { BASE_URL } from "./Home";
 export const UserDetail = () => {
-  const { id } = useParams();
+  const { userId } = useParams();
   const [userData, setUserData] = useState();
   useEffect(() => {
     const fetchUserDetail = async (id) => {
@@ -12,7 +11,8 @@ export const UserDetail = () => {
         setUserData(response.data.result.Items);
       });
     };
-  }, [id]);
+    fetchUserDetail(userId);
+  }, [userId]);
 
   return <div>This is User Detail Page</div>;
 };

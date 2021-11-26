@@ -47,6 +47,14 @@ functions:
           path: users/getAll
           cors: true
 
+  getUser:
+    handler: handler.getUser
+    events:
+      - http:
+          method: GET
+          path: users/{id}
+          cors: true
+
   createUser:
     handler: handler.createUser
     events:

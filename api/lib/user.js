@@ -43,8 +43,24 @@ module.exports.createUser = (event, cb) => {
 module.exports.updateUser = (event, cb) => {
   helper
     .updateTodo(JSON.parse(event.body))
-    .then((result) => {
+    .then((user) => {
       cb(null, response.create(200, {}));
+    })
+    .catch((err) => {
+      cb(
+        null,
+        response.create(500, {
+          err: err,
+        })
+      );
+    });
+};
+
+module.exports.getUser = (event, cb) => {
+  helper
+    .getUser(JSON.parse(event.body))
+    .then((result) => {
+      cb(null, response.create(200, { result: user }));
     })
     .catch((err) => {
       cb(

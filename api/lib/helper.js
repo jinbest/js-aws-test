@@ -26,16 +26,8 @@ function getAllUsers() {
 }
 
 function createUser(user) {
-  const { email } = user;
   return db("put", {
     TableName: tableName,
-    KeyConditionExpression: "#email = :email",
-    ExpressionAttributeValues: {
-      ":email": email,
-    },
-    ExpressionAttributeNames: {
-      "#email": "email",
-    },
     Item: {
       id: user.id,
       email: user.email,

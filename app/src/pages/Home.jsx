@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const BASE_URL = "http://localhost:3000";
+import { useNavigate } from "react-router-dom";
+export const BASE_URL = "http://localhost:3000/dev";
+
 const mockData = [
   {
     id: "c796d733-9779-45c5-a130-20fd1fd0b652",
@@ -18,7 +20,9 @@ const mockData = [
 ];
 
 export const Home = () => {
-  const [users, setUsers] = useState(mockData);
+  const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchUsers = async () => {
       await axios.get(BASE_URL + "/users/getAll").then((response) => {
@@ -34,16 +38,22 @@ export const Home = () => {
     });
   };
 
+  const handleEditUser = async (userId) => {
+    console.log("userId: ", userId);
+    navigate("user/" + userId);
+  };
+
   return (
     <div className="layout">
       <h2>All Users</h2>
       <div className="user-list">
         {users.map((user) => (
-          <div className="user-wrapper">
+          <div className="user-wrapper" key={user.id}>
             <div className="user-firstName">{user.firstName}</div>
             <div className="user-lastName">{user.lastName}</div>
             <div className="user-email">{user.email}</div>
             <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+            <button onClick={() => handleEditUser(user.id)}>Edit</button>
           </div>
         ))}
       </div>
