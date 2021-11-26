@@ -39,7 +39,6 @@ export const Home = () => {
   };
 
   const handleEditUser = async (userId) => {
-    console.log("userId: ", userId);
     navigate("user/" + userId);
   };
 
