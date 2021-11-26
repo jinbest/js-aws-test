@@ -58,8 +58,8 @@ module.exports.updateUser = (event, cb) => {
 
 module.exports.getUser = (event, cb) => {
   helper
-    .getUser(JSON.parse(event.body))
-    .then((result) => {
+    .getUser(event.pathParameters.id)
+    .then((user) => {
       cb(null, response.create(200, { result: user }));
     })
     .catch((err) => {
