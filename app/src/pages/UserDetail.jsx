@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./Home";
+
 export const UserDetail = () => {
   const { userId } = useParams();
   const [userData, setUserData] = useState();

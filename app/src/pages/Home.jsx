@@ -1,23 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export const BASE_URL = "http://localhost:3000/dev";
-
-const mockData = [
-  {
-    id: "c796d733-9779-45c5-a130-20fd1fd0b652",
-    firstName: "Jin",
-    lastName: "Zheng",
-    email: "jin.bestvictoria718@gmail.com",
-  },
-
-  {
-    id: "c796d733-9779-45c5-a130-dwer32wedrewer",
-    firstName: "Karlman",
-    lastName: "Filter",
-    email: "example@gmail.com",
-  },
-];
 
 export const Home = () => {
   const [users, setUsers] = useState([]);
@@ -42,6 +27,9 @@ export const Home = () => {
 
   return (
     <div className="layout">
+      <Link to="/create">
+        <button className="btn-comeback">Create New User</button>
+      </Link>
       <h2>All Users</h2>
       <div className="user-list">
         {users.map((user) => (

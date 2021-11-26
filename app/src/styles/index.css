@@ -41,7 +41,6 @@
 }
 
 .btn-comeback {
-  width: 100px;
   border-radius: 5px;
   background-color: rgb(44, 63, 168);
   color: white;
@@ -49,4 +48,20 @@
   margin-right: 10px;
   padding: 5px;
   float: left;
+}
+.detail-field {
+  margin-top: 15px;
+}
+.detail-label {
+  margin-right: 10px;
+}
+
+.btn-create {
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgb(44, 168, 81);
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
 }

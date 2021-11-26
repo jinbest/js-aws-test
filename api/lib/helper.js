@@ -2,6 +2,7 @@
 
 var Promise = require("bluebird"),
   db = require("../database/dynamodb");
+const { v4 } = require("uuid");
 
 const DB_PREFIX = process.env.IS_OFFLINE ? "dev" : process.env.DB_PREFIX;
 const tableName = DB_PREFIX + "-users";
@@ -26,10 +27,11 @@ function getAllUsers() {
 }
 
 function createUser(user) {
+  const id = v4();
   return db("put", {
     TableName: tableName,
     Item: {
-      id: user.id,
+      id,
       email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
