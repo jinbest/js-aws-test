@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./Home";
 export const UserDetail = () => {
@@ -16,14 +16,19 @@ export const UserDetail = () => {
 
   return (
     <div>
-      <h2>This is User Detail Page</h2>
-      {userData && (
-        <div className="user-wrapper" key={userData.id}>
-          <div className="user-firstName">{userData.firstName}</div>
-          <div className="user-lastName">{userData.lastName}</div>
-          <div className="user-email">{userData.email}</div>
-        </div>
-      )}
+      <Link to="/">
+        <button className="btn-comeback">Come Back</button>
+      </Link>
+      <h2>This is User Edit Page</h2>
+      <div className="user-list">
+        {userData && (
+          <div className="user-wrapper" key={userData.id}>
+            <div className="user-firstName">{userData.firstName}</div>
+            <div className="user-lastName">{userData.lastName}</div>
+            <div className="user-email">{userData.email}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

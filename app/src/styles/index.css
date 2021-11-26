@@ -8,6 +8,8 @@
 }
 .user-list {
   padding: 20px;
+  max-width: 518px;
+  margin: auto;
 }
 
 .user-firstName {
@@ -36,4 +38,15 @@
   cursor: pointer;
   margin-right: 10px;
   padding: 5px;
+}
+
+.btn-comeback {
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgb(44, 63, 168);
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
+  float: left;
 }
