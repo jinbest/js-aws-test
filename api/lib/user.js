@@ -42,9 +42,9 @@ module.exports.createUser = (event, cb) => {
 
 module.exports.updateUser = (event, cb) => {
   helper
-    .updateTodo(JSON.parse(event.body))
+    .updateUser({ user: JSON.parse(event.body), id: event.pathParameters.id })
     .then((user) => {
-      cb(null, response.create(200, {}));
+      cb(null, response.create(200, { result: user }));
     })
     .catch((err) => {
       cb(

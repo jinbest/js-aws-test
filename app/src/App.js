@@ -1,7 +1,6 @@
-import logo from "./logo.svg";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { UserDetail } from "./pages/UserDetail";
+import { UpdateUser } from "./pages/UpdateUser";
 import { CreateUser } from "./pages/CreateUser";
 import "./App.css";
 import "./styles/index.css";
@@ -13,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateUser />} />
-          <Route path="/user/:userId" element={<UserDetail />} />
+          <Route path="/user/:userId" element={<UpdateUser />} />
         </Routes>
       </Router>
     </div>

@@ -39,15 +39,21 @@ function createUser(user) {
   });
 }
 
-function updateUser(user) {
+function updateUser(data) {
+  const { id, user } = data;
+  console.log("user:-----> ", user);
+  console.log("id: ", id);
   return db("update", {
     TableName: tableName,
     Key: {
-      id: user.id,
+      id: id,
     },
-    UpdateExpression: "set email = :email",
+    UpdateExpression:
+      "set email = :email, firstName = :firstName, lastName = :lastName",
     ExpressionAttributeValues: {
       ":email": user.email,
+      ":firstName": user.firstName,
+      ":lastName": user.lastName,
     },
   });
 }

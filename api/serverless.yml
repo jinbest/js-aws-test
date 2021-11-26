@@ -68,7 +68,7 @@ functions:
     events:
       - http:
           method: PUT
-          path: users/update
+          path: users/update/{id}
           cors: true
 
   deleteUser:
