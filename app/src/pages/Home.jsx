@@ -51,8 +51,18 @@ export const Home = () => {
             <div className="user-firstName">{user.firstName}</div>
             <div className="user-lastName">{user.lastName}</div>
             <div className="user-email">{user.email}</div>
-            <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
-            <button onClick={() => handleEditUser(user.id)}>Edit</button>
+            <button
+              className="btn-delete"
+              onClick={() => handleDeleteUser(user.id)}
+            >
+              Delete
+            </button>
+            <button
+              className="btn-edit"
+              onClick={() => handleEditUser(user.id)}
+            >
+              Edit
+            </button>
           </div>
         ))}
       </div>

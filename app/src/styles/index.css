@@ -19,3 +19,21 @@
 .user-email {
   margin-right: 20px;
 }
+.btn-edit {
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgb(44, 168, 44);
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btn-delete {
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgb(168, 44, 44);
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
+}
