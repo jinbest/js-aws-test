@@ -33,9 +33,7 @@ export const Home = () => {
   }, []);
 
   const handleDeleteUser = async (userId) => {
-    await axios.delete(BASE_URL + "/users/delete/" + userId).then((res) => {
-      setUsers(res.data.result.Items);
-    });
+    await axios.delete(BASE_URL + "/users/delete/" + userId);
   };
 
   const handleEditUser = async (userId) => {
