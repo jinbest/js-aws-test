@@ -1,11 +1,12 @@
 ### Coding Challenge Guidelines
-1. Create a Serverless framework application. 
+
+1. Create a Serverless framework application.
 
 2. The serverless application should contain a dynamodb table to house "User" data. Attributes:
-id: String UUID
-firstName: String
-lastName: String
-email: String
+   id: String UUID
+   firstName: String
+   lastName: String
+   email: String
 
 3. Create Lambdas to create and list items from this DynamoDB table.
 
@@ -14,11 +15,12 @@ email: String
 5. Make the Lambda function available via an AWS API Gateway endpoint.
 
 6. Write unit tests for your code by mocking AWS DynamoDB API. You don't have to provide 100% code coverage.
-Please write some test cases to demonstrate your approach.
+   Please write some test cases to demonstrate your approach.
 
 7. Make response JSON:API 1.0 compatible.
 
 8. Build a REACT application to display and create user data. The application will consist of the following pages:
+
 - main page to list all the existing users
 - user should be able to delete users
 - a page to create or update existing users
@@ -44,3 +46,12 @@ going into production - then push your changes to the master branch.
 All the best,
 
 The CodeSubmit Team
+
+### How to run app
+
+first, go to api directory.
+run command "npm run db-setup" to install dynamodb.
+after that, "npm run migrate" to migrate.
+and "npm run api" to run local api.
+
+while running the api, go to app, and npm run start.
